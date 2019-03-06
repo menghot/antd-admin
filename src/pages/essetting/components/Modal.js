@@ -60,7 +60,7 @@ class TaskitemModal extends PureComponent {
               ],
             })(<Input />)}
           </FormItem>
-          <FormItem label={i18n.t`indexName`} hasFeedback {...formItemLayout}>
+          <FormItem label={i18n.t`索引名称`} hasFeedback {...formItemLayout}>
             {getFieldDecorator('indexName', {
               initialValue: item.indexName,
               rules: [
@@ -70,7 +70,7 @@ class TaskitemModal extends PureComponent {
               ],
             })(<Input />)}
           </FormItem>
-          <FormItem label={i18n.t`idKey`} hasFeedback {...formItemLayout}>
+          <FormItem label={i18n.t`ID名称`} hasFeedback {...formItemLayout}>
             {getFieldDecorator('idKey', {
               initialValue: item.idKey,
               rules: [
@@ -80,7 +80,7 @@ class TaskitemModal extends PureComponent {
               ],
             })(<Input />)}
           </FormItem>
-          <FormItem label={i18n.t`docType`} hasFeedback {...formItemLayout}>
+          <FormItem label={i18n.t`文档类型`} hasFeedback {...formItemLayout}>
             {getFieldDecorator('docType', {
               initialValue: item.docType,
               rules: [
@@ -90,7 +90,7 @@ class TaskitemModal extends PureComponent {
               ],
             })(<Input />)}
           </FormItem>
-          <FormItem label={i18n.t`retryCount`} hasFeedback {...formItemLayout}>
+          <FormItem label={i18n.t`重试次数`} hasFeedback {...formItemLayout}>
             {getFieldDecorator('retryCount', {
               initialValue: item.retryCount,
               rules: [

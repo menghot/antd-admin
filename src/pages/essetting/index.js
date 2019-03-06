@@ -45,8 +45,8 @@ class ESsetting extends PureComponent {
       confirmLoading: loading.effects[`essetting/${modalType}`],
       title: `${
         modalType === 'create'
-          ? i18n.t`Create essetting`
-          : i18n.t`Update essetting`
+          ? '创建ES配置'
+          : '更新ES配置'
       }`,
       centered: true,
       onOk(data) {

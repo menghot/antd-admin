@@ -87,6 +87,20 @@ class Taskitem extends PureComponent {
           })
         })
       },
+      onExecuteItem(id) {
+        dispatch({
+          type: 'taskitem/execute',
+          payload: id,
+        }).then(() => {
+          console.info(id);
+          // handleRefresh({
+          //   page:
+          //     list.length === 1 && pagination.current > 1
+          //       ? pagination.current - 1
+          //       : pagination.current,
+          // })
+        })
+      },
       onEditItem(item) {
         dispatch({
           type: 'taskitem/showModal',

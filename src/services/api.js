@@ -13,6 +13,7 @@ export default {
   removeUserList: 'POST /users/delete',
 
   queryTaskitem: '/task-item/:id',
+  executeTaskitem: '/task-item/:id/execute',
   queryTaskitemList: '/task-items',
   updateTaskitem: 'Patch /task-item/:id',
   createTaskitem: 'POST /task-item',

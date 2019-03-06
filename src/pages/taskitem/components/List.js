@@ -11,7 +11,7 @@ const { confirm } = Modal
 @withI18n()
 class List extends PureComponent {
   handleMenuClick = (record, e) => {
-    const { onDeleteItem, onEditItem, i18n } = this.props
+    const { onDeleteItem, onEditItem, onExecuteItem, i18n } = this.props
 
     if (e.key === '1') {
       onEditItem(record)
@@ -22,11 +22,18 @@ class List extends PureComponent {
           onDeleteItem(record.id)
         },
       })
+    } else if (e.key === '3') {
+      confirm({
+        title: i18n.t`Are you sure execute this taskitem?`,
+        onOk() {
+          onExecuteItem(record.id)
+        },
+      })
     }
   }
 
   render() {
-    const { onDeleteItem, onEditItem, i18n, ...tableProps } = this.props
+    const { onDeleteItem, onEditItem, onExecuteItem, i18n, ...tableProps } = this.props
     const columns = [
       {
         title: <Trans>Name</Trans>,
@@ -111,6 +118,7 @@ class List extends PureComponent {
 List.propTypes = {
   onDeleteItem: PropTypes.func,
   onEditItem: PropTypes.func,
+  onExecuteItem: PropTypes.func,
   location: PropTypes.object,
 }
 

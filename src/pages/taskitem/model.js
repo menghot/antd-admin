@@ -9,6 +9,7 @@ const {
   createTaskitem,
   removeTaskitem,
   updateTaskitem,
+  executeTaskitem,
   removeTaskitemList,
 } = api
 
@@ -73,6 +74,15 @@ export default modelExtend(pageModel, {
       const data = yield call(removeTaskitemList, payload)
       if (data.success) {
         yield put({ type: 'updateState', payload: { selectedRowKeys: [] } })
+      } else {
+        throw data
+      }
+    },
+
+    *execute({ payload }, { call, put }) {
+      const data = yield call(executeTaskitem, { id: payload })
+      if (data.success) {
+        console.info(data);
       } else {
         throw data
       }

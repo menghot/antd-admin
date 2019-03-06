@@ -36,6 +36,11 @@ class List extends PureComponent {
     const { onDeleteItem, onEditItem, onExecuteItem, i18n, ...tableProps } = this.props
     const columns = [
       {
+        title: 'id',
+        dataIndex: 'id',
+        key: 'id'
+      },
+      {
         title: <Trans>Name</Trans>,
         dataIndex: 'name',
         key: 'name',

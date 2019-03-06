@@ -59,7 +59,7 @@ class Dashboard extends PureComponent {
         className={styles.dashboard}
       >
         <Row gutter={24}>
-          {numberCards}
+          {/*{numberCards}*/}
           {/*<Col lg={18} md={24}>*/}
           {/*<Card*/}
           {/*bordered={false}*/}
@@ -105,18 +105,18 @@ class Dashboard extends PureComponent {
           {/*</Col>*/}
           {/*</Row>*/}
           {/*</Col>*/}
-          <Col lg={12} md={24}>
-            <Card bordered={false} {...bodyStyle}>
-              <RecentSales data={recentSales} />
-            </Card>
-          </Col>
-          <Col lg={12} md={24}>
-            <Card bordered={false} {...bodyStyle}>
-              <ScrollBar>
-                <Comments data={comments} />
-              </ScrollBar>
-            </Card>
-          </Col>
+          {/*<Col lg={12} md={24}>*/}
+            {/*<Card bordered={false} {...bodyStyle}>*/}
+              {/*<RecentSales data={recentSales} />*/}
+            {/*</Card>*/}
+          {/*</Col>*/}
+          {/*<Col lg={12} md={24}>*/}
+            {/*<Card bordered={false} {...bodyStyle}>*/}
+              {/*<ScrollBar>*/}
+                {/*<Comments data={comments} />*/}
+              {/*</ScrollBar>*/}
+            {/*</Card>*/}
+          {/*</Col>*/}
           <Col lg={24} md={24}>
             <Card
               bordered={false}

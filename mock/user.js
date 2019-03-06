@@ -15,7 +15,7 @@ let usersListData = Mock.mock({
       email: '@email',
       createTime: '@datetime',
       avatar() {
-        return randomAvatar()
+        return ""
       },
     },
   ],
@@ -102,7 +102,7 @@ module.exports = {
         'token',
         JSON.stringify({ id: user[0].id, deadline: now.getTime() }),
         {
-          maxAge: 900000,
+          maxAge: 900000000,
           httpOnly: true,
         }
       )

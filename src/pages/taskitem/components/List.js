@@ -41,6 +41,11 @@ class List extends PureComponent {
         key: 'id'
       },
       {
+        title: 'status',
+        dataIndex: 'status',
+        key: 'status'
+      },
+      {
         title: <Trans>Name</Trans>,
         dataIndex: 'name',
         key: 'name',

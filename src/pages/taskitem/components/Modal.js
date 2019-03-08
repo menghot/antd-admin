@@ -37,6 +37,8 @@ class TaskitemModal extends PureComponent {
   render() {
     const { item = {}, onOk, form, i18n, ...modalProps } = this.props
     const { getFieldDecorator } = form
+    const { TextArea } = Input;
+
     return (
       <Modal {...modalProps} onOk={this.handleOk}>
         <Form layout="horizontal">
@@ -63,12 +65,7 @@ class TaskitemModal extends PureComponent {
           <FormItem label={i18n.t`producerDbSql`} hasFeedback {...formItemLayout}>
             {getFieldDecorator('producerDbSql', {
               initialValue: item.producerDbSql,
-              rules: [
-                {
-                  required: true,
-                },
-              ],
-            })(<Input />)}
+            })(<TextArea />)}
           </FormItem>
           <FormItem
             label={i18n.t`producerType`}
@@ -76,7 +73,7 @@ class TaskitemModal extends PureComponent {
             {...formItemLayout}
           >
             {getFieldDecorator('producerType', {
-              initialValue: item.producerType,
+              initialValue: item.producerType == null ? 'com.yoyosys.mt.task.producer.DatabaseProducer	' : item.producerType,
               rules: [
                 {
                   required: true,
@@ -90,7 +87,7 @@ class TaskitemModal extends PureComponent {
             {...formItemLayout}
           >
             {getFieldDecorator('producerCount', {
-              initialValue: item.producerCount,
+              initialValue: item.producerCount == null ? '1':item.producerCount,
               rules: [
                 {
                   required: true,
@@ -114,7 +111,7 @@ class TaskitemModal extends PureComponent {
             {...formItemLayout}
           >
             {getFieldDecorator('consumerType', {
-              initialValue: item.consumerType,
+              initialValue: item.consumerType == null ? 'com.yoyosys.mt.task.consumer.ElasticsearchConsumer	' : item.consumerType,
               rules: [
                 {
                   required: true,
@@ -128,7 +125,7 @@ class TaskitemModal extends PureComponent {
             {...formItemLayout}
           >
             {getFieldDecorator('consumerCount', {
-              initialValue: item.consumerCount,
+              initialValue: item.consumerCount == null ? '4' : item.consumerCount,
               rules: [
                 {
                   required: true,
@@ -143,11 +140,6 @@ class TaskitemModal extends PureComponent {
           >
             {getFieldDecorator('consumerEsIndexName', {
               initialValue: item.consumerEsIndexName,
-              rules: [
-                {
-                  required: true,
-                },
-              ],
             })(<Input />)}
           </FormItem>
         </Form>

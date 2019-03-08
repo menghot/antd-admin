@@ -10,6 +10,8 @@ import List from './components/List'
 import Filter from './components/Filter'
 import Modal from './components/Modal'
 
+import styles from './index.less'
+
 @withI18n()
 @connect(({ dbsetting, loading }) => ({ dbsetting, loading }))
 class DbSetting extends PureComponent {
@@ -146,7 +148,7 @@ class DbSetting extends PureComponent {
     }
 
     return (
-      <Page inner>
+      <Page inner className={styles.dbsetting}>
         <Filter {...filterProps} />
         {selectedRowKeys.length > 0 && (
           <Row style={{ marginBottom: 24, textAlign: 'right', fontSize: 13 }}>

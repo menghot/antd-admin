@@ -25,19 +25,14 @@ class List extends PureComponent {
     }
   }
 
-  // private String producerId;
-  // private String producerType;
-  // private int producerCount = 1;
-  // private int producerCompletedCount;
-  // private Object producerSettings;
-  // private int producerStatus;
-  //
-  //
-  // private String consumerId;
-  // private String consumerType;
-  // private int consumerCount = 4;
-  // private int consumerCompletedCount;
-  // private int consumerStatus;
+  // private String id;
+  // private String name;
+  // private String jdbcUrl;
+  // private String username;
+  // private String password;
+  // private String sql;
+  // private Date createTime;
+  // private Date updateTime;
   render() {
     const { onDeleteItem, onEditItem, i18n, ...tableProps } = this.props
     const columns = [
@@ -60,44 +55,29 @@ class List extends PureComponent {
         key: 'jdbcUrl',
       },
       {
-        title: <Trans>producerId</Trans>,
-        dataIndex: 'producerId',
-        key: 'producerId',
+        title: <Trans>username</Trans>,
+        dataIndex: 'username',
+        key: 'username',
       },
       {
-        title: <Trans>producerType</Trans>,
-        dataIndex: 'producerType',
-        key: 'producerType',
+        title: <Trans>password</Trans>,
+        dataIndex: 'password',
+        key: 'password',
       },
       {
-        title: <Trans>producerCount</Trans>,
-        dataIndex: 'producerCount',
-        key: 'producerCount',
+        title: <Trans>sql</Trans>,
+        dataIndex: 'sql',
+        key: 'sql',
       },
       {
-        title: <Trans>consumerId</Trans>,
-        dataIndex: 'consumerId',
-        key: 'consumerId',
-      },
-      {
-        title: <Trans>consumerType</Trans>,
-        dataIndex: 'consumerType',
-        key: 'consumerType',
-      },
-      {
-        title: <Trans>consumerCount</Trans>,
-        dataIndex: 'consumerCount',
-        key: 'consumerCount',
-      },
-      {
-        title: <Trans>CreateTime</Trans>,
+        title: <Trans>createTime</Trans>,
         dataIndex: 'createTime',
         key: 'createTime',
       },
       {
         title: <Trans>Operation</Trans>,
         key: 'operation',
-        fixed: 'right',
+        // fixed: 'right',
         render: (text, record) => {
           return (
             <DropOption

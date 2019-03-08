@@ -64,6 +64,11 @@ class List extends PureComponent {
         key: 'producerCount',
       },
       {
+        title: <Trans>producerDbSql</Trans>,
+        dataIndex: 'producerDbSql',
+        key: 'producerDbSql',
+      },
+      {
         title: <Trans>consumerId</Trans>,
         dataIndex: 'consumerId',
         key: 'consumerId',
@@ -77,6 +82,11 @@ class List extends PureComponent {
         title: <Trans>consumerCount</Trans>,
         dataIndex: 'consumerCount',
         key: 'consumerCount',
+      },
+      {
+        title: <Trans>consumerEsIndexName</Trans>,
+        dataIndex: 'consumerEsIndexName',
+        key: 'consumerEsIndexName',
       },
       {
         title: <Trans>CreateTime</Trans>,

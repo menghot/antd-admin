@@ -60,6 +60,16 @@ class TaskitemModal extends PureComponent {
               ],
             })(<Input />)}
           </FormItem>
+          <FormItem label={i18n.t`producerDbSql`} hasFeedback {...formItemLayout}>
+            {getFieldDecorator('producerDbSql', {
+              initialValue: item.producerDbSql,
+              rules: [
+                {
+                  required: true,
+                },
+              ],
+            })(<Input />)}
+          </FormItem>
           <FormItem
             label={i18n.t`producerType`}
             hasFeedback
@@ -119,6 +129,20 @@ class TaskitemModal extends PureComponent {
           >
             {getFieldDecorator('consumerCount', {
               initialValue: item.consumerCount,
+              rules: [
+                {
+                  required: true,
+                },
+              ],
+            })(<Input />)}
+          </FormItem>
+          <FormItem
+            label={i18n.t`consumerEsIndexName`}
+            hasFeedback
+            {...formItemLayout}
+          >
+            {getFieldDecorator('consumerEsIndexName', {
+              initialValue: item.consumerEsIndexName,
               rules: [
                 {
                   required: true,

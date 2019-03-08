@@ -37,6 +37,7 @@ class TaskitemModal extends PureComponent {
   render() {
     const { item = {}, onOk, form, i18n, ...modalProps } = this.props
     const { getFieldDecorator } = form
+    const { TextArea } = Input;
     return (
       <Modal {...modalProps} onOk={this.handleOk}>
         <Form layout="horizontal">
@@ -50,9 +51,9 @@ class TaskitemModal extends PureComponent {
               ],
             })(<Input />)}
           </FormItem>
-          <FormItem label={i18n.t`producerId`} hasFeedback {...formItemLayout}>
-            {getFieldDecorator('producerId', {
-              initialValue: item.producerId,
+          <FormItem label={i18n.t`jdbcUrl`} hasFeedback {...formItemLayout}>
+            {getFieldDecorator('jdbcUrl', {
+              initialValue: item.jdbcUrl,
               rules: [
                 {
                   required: true,
@@ -61,12 +62,12 @@ class TaskitemModal extends PureComponent {
             })(<Input />)}
           </FormItem>
           <FormItem
-            label={i18n.t`producerType`}
+            label={i18n.t`username`}
             hasFeedback
             {...formItemLayout}
           >
-            {getFieldDecorator('producerType', {
-              initialValue: item.producerType,
+            {getFieldDecorator('username', {
+              initialValue: item.username,
               rules: [
                 {
                   required: true,
@@ -75,12 +76,12 @@ class TaskitemModal extends PureComponent {
             })(<Input />)}
           </FormItem>
           <FormItem
-            label={i18n.t`producerCount`}
+            label={i18n.t`password`}
             hasFeedback
             {...formItemLayout}
           >
-            {getFieldDecorator('producerCount', {
-              initialValue: item.producerCount,
+            {getFieldDecorator('password', {
+              initialValue: item.password,
               rules: [
                 {
                   required: true,
@@ -88,43 +89,15 @@ class TaskitemModal extends PureComponent {
               ],
             })(<Input />)}
           </FormItem>
-          <FormItem label={i18n.t`consumerId`} hasFeedback {...formItemLayout}>
-            {getFieldDecorator('consumerId', {
-              initialValue: item.consumerId,
+          <FormItem label={i18n.t`sql`} hasFeedback {...formItemLayout}>
+            {getFieldDecorator('sql', {
+              initialValue: item.sql,
               rules: [
                 {
                   required: true,
                 },
               ],
-            })(<Input />)}
-          </FormItem>
-          <FormItem
-            label={i18n.t`consumerType`}
-            hasFeedback
-            {...formItemLayout}
-          >
-            {getFieldDecorator('consumerType', {
-              initialValue: item.consumerType,
-              rules: [
-                {
-                  required: true,
-                },
-              ],
-            })(<Input />)}
-          </FormItem>
-          <FormItem
-            label={i18n.t`consumerCount`}
-            hasFeedback
-            {...formItemLayout}
-          >
-            {getFieldDecorator('consumerCount', {
-              initialValue: item.consumerCount,
-              rules: [
-                {
-                  required: true,
-                },
-              ],
-            })(<Input />)}
+            })(<TextArea />)}
           </FormItem>
         </Form>
       </Modal>

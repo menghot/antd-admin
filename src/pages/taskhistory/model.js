@@ -5,17 +5,17 @@ import api from 'api'
 import { pageModel } from 'utils/model'
 
 const {
-  queryTaskitemList,
-  createTaskitem,
-  removeTaskitem,
-  duplicateTaskitem,
-  updateTaskitem,
-  executeTaskitem,
-  removeTaskitemList,
+  querytaskHistoryList,
+  createtaskHistory,
+  removetaskHistory,
+  duplicatetaskHistory,
+  updatetaskHistory,
+  executetaskHistory,
+  removetaskHistoryList,
 } = api
 
 export default modelExtend(pageModel, {
-  namespace: 'taskitem',
+  namespace: 'taskhistory',
 
   state: {
     currentItem: {},
@@ -27,7 +27,7 @@ export default modelExtend(pageModel, {
   subscriptions: {
     setup({ dispatch, history }) {
       history.listen(location => {
-        if (pathMatchRegexp('/taskitem', location.pathname)) {
+        if (pathMatchRegexp('/taskhistory', location.pathname)) {
           const payload = location.query || { page: 1, pageSize: 10 }
           dispatch({
             type: 'query',
@@ -40,7 +40,7 @@ export default modelExtend(pageModel, {
 
   effects: {
     *query({ payload = {} }, { call, put }) {
-      const data = yield call(queryTaskitemList, payload)
+      const data = yield call(querytaskHistoryList, payload)
       if (data) {
         yield put({
           type: 'querySuccess',
@@ -57,8 +57,8 @@ export default modelExtend(pageModel, {
     },
 
     *delete({ payload }, { call, put, select }) {
-      const data = yield call(removeTaskitem, { id: payload })
-      const { selectedRowKeys } = yield select(_ => _.taskitem)
+      const data = yield call(removetaskHistory, { id: payload })
+      const { selectedRowKeys } = yield select(_ => _.taskhistory)
       if (data.success) {
         yield put({
           type: 'updateState',
@@ -72,7 +72,7 @@ export default modelExtend(pageModel, {
     },
 
     *multiDelete({ payload }, { call, put }) {
-      const data = yield call(removeTaskitemList, payload)
+      const data = yield call(removetaskHistoryList, payload)
       if (data.success) {
         yield put({ type: 'updateState', payload: { selectedRowKeys: [] } })
       } else {
@@ -81,7 +81,7 @@ export default modelExtend(pageModel, {
     },
 
     *execute({ payload }, { call, put }) {
-      const data = yield call(executeTaskitem, { id: payload })
+      const data = yield call(executetaskHistory, { id: payload })
       if (data.success) {
         console.info(data);
       } else {
@@ -90,7 +90,7 @@ export default modelExtend(pageModel, {
     },
 
     *duplicate({ payload }, { call, put }) {
-      const data = yield call(duplicateTaskitem, { id: payload })
+      const data = yield call(duplicatetaskHistory, { id: payload })
       if (data.success) {
         console.info(data);
       } else {
@@ -100,7 +100,7 @@ export default modelExtend(pageModel, {
 
 
     *create({ payload }, { call, put }) {
-      const data = yield call(createTaskitem, payload)
+      const data = yield call(createtaskHistory, payload)
       if (data.success) {
         yield put({ type: 'hideModal' })
       } else {
@@ -109,9 +109,9 @@ export default modelExtend(pageModel, {
     },
 
     *update({ payload }, { select, call, put }) {
-      const id = yield select(({ taskitem }) => taskitem.currentItem.id)
-      const newTaskitem = { ...payload, id }
-      const data = yield call(updateTaskitem, newTaskitem)
+      const id = yield select(({ taskhistory }) => taskhistory.currentItem.id)
+      const newtaskHistory = { ...payload, id }
+      const data = yield call(updatetaskHistory, newtaskHistory)
       console.info(data)
       if (data.success) {
         yield put({ type: 'hideModal' })

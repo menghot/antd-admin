@@ -11,10 +11,10 @@ import Filter from './components/Filter'
 import Modal from './components/Modal'
 
 @withI18n()
-@connect(({ taskitem, loading }) => ({ taskitem, loading }))
-class Taskitem extends PureComponent {
+@connect(({ taskhistory, loading }) => ({ taskhistory, loading }))
+class TaskHistory extends PureComponent {
   render() {
-    const { location, dispatch, taskitem, loading, i18n } = this.props
+    const { location, dispatch, taskhistory, loading, i18n } = this.props
     const { query, pathname } = location
     const {
       list,
@@ -23,7 +23,7 @@ class Taskitem extends PureComponent {
       modalVisible,
       modalType,
       selectedRowKeys,
-    } = taskitem
+    } = taskhistory
 
     const handleRefresh = newQuery => {
       router.push({
@@ -42,16 +42,16 @@ class Taskitem extends PureComponent {
       item: modalType === 'create' ? {} : currentItem,
       visible: modalVisible,
       maskClosable: false,
-      confirmLoading: loading.effects[`taskitem/${modalType}`],
+      confirmLoading: loading.effects[`taskhistory/${modalType}`],
       title: `${
         modalType === 'create'
-          ? i18n.t`Create taskitem`
-          : i18n.t`Update taskitem`
+          ? i18n.t`Create taskhistory`
+          : i18n.t`Update taskhistory`
       }`,
       centered: true,
       onOk(data) {
         dispatch({
-          type: `taskitem/${modalType}`,
+          type: `taskhistory/${modalType}`,
           payload: data,
         }).then(() => {
           handleRefresh()
@@ -59,14 +59,14 @@ class Taskitem extends PureComponent {
       },
       onCancel() {
         dispatch({
-          type: 'taskitem/hideModal',
+          type: 'taskhistory/hideModal',
         })
       },
     }
 
     const listProps = {
       dataSource: list,
-      loading: loading.effects['taskitem/query'],
+      loading: loading.effects['taskhistory/query'],
       pagination,
       onChange(page) {
         handleRefresh({
@@ -76,7 +76,7 @@ class Taskitem extends PureComponent {
       },
       onDeleteItem(id) {
         dispatch({
-          type: 'taskitem/delete',
+          type: 'taskhistory/delete',
           payload: id,
         }).then(() => {
           handleRefresh({
@@ -89,7 +89,7 @@ class Taskitem extends PureComponent {
       },
       onDuplicateItem(id) {
         dispatch({
-          type: 'taskitem/duplicate',
+          type: 'taskhistory/duplicate',
           payload: id,
         }).then(() => {
           handleRefresh({
@@ -102,7 +102,7 @@ class Taskitem extends PureComponent {
       },
       onExecuteItem(id) {
         dispatch({
-          type: 'taskitem/execute',
+          type: 'taskhistory/execute',
           payload: id,
         }).then(() => {
           console.info(id);
@@ -116,7 +116,7 @@ class Taskitem extends PureComponent {
       },
       onEditItem(item) {
         dispatch({
-          type: 'taskitem/showModal',
+          type: 'taskhistory/showModal',
           payload: {
             modalType: 'update',
             currentItem: item,
@@ -127,7 +127,7 @@ class Taskitem extends PureComponent {
         selectedRowKeys,
         onChange: keys => {
           dispatch({
-            type: 'taskitem/updateState',
+            type: 'taskhistory/updateState',
             payload: {
               selectedRowKeys: keys,
             },
@@ -148,7 +148,7 @@ class Taskitem extends PureComponent {
       },
       onAdd() {
         dispatch({
-          type: 'taskitem/showModal',
+          type: 'taskhistory/showModal',
           payload: {
             modalType: 'create',
           },
@@ -158,7 +158,7 @@ class Taskitem extends PureComponent {
 
     const handleDeleteItems = () => {
       dispatch({
-        type: 'taskitem/multiDelete',
+        type: 'taskhistory/multiDelete',
         payload: {
           ids: selectedRowKeys,
         },
@@ -198,11 +198,11 @@ class Taskitem extends PureComponent {
   }
 }
 
-Taskitem.propTypes = {
-  taskitem: PropTypes.object,
+TaskHistory.propTypes = {
+  taskhistory: PropTypes.object,
   location: PropTypes.object,
   dispatch: PropTypes.func,
   loading: PropTypes.object,
 }
 
-export default Taskitem
+export default TaskHistory

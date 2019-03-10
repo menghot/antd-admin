@@ -4,11 +4,11 @@ import { connect } from 'dva'
 import { Page } from 'components'
 import styles from './index.less'
 
-@connect(({ taskitemDetail }) => ({ taskitemDetail }))
-class TaskitemDetail extends PureComponent {
+@connect(({ userDetail }) => ({ userDetail }))
+class UserDetail extends PureComponent {
   render() {
-    const { taskitemDetail } = this.props
-    const { data } = taskitemDetail
+    const { userDetail } = this.props
+    const { data } = userDetail
     const content = []
     for (let key in data) {
       if ({}.hasOwnProperty.call(data, key)) {
@@ -28,8 +28,8 @@ class TaskitemDetail extends PureComponent {
   }
 }
 
-TaskitemDetail.propTypes = {
-  taskitemDetail: PropTypes.object,
+UserDetail.propTypes = {
+  userDetail: PropTypes.object,
 }
 
-export default TaskitemDetail
+export default UserDetail

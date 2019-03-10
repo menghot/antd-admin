@@ -35,6 +35,15 @@ const database = [
   },
 
   {
+    id: '71',
+    menuParentId: '-1',
+    breadcrumbParentId: '7',
+    name: 'Task Detail',
+    zhName: '任务详情',
+    route: '/taskitem/:id',
+  },
+
+  {
     id: '8',
     breadcrumbParentId: '1',
     name: 'ES 配置',

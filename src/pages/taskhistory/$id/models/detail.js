@@ -1,10 +1,10 @@
 import { pathMatchRegexp } from 'utils'
 import api from 'api'
 
-const { queryTaskitem } = api
+const { queryUser } = api
 
 export default {
-  namespace: 'taskitemDetail',
+  namespace: 'userDetail',
 
   state: {
     data: {},
@@ -13,7 +13,7 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       history.listen(({ pathname }) => {
-        const match = pathMatchRegexp('/taskitem/:id', pathname)
+        const match = pathMatchRegexp('/user/:id', pathname)
         if (match) {
           dispatch({ type: 'query', payload: { id: match[1] } })
         }
@@ -23,13 +23,13 @@ export default {
 
   effects: {
     *query({ payload }, { call, put }) {
-      const data = yield call(queryTaskitem, payload)
+      const data = yield call(queryUser, payload)
       const { success, message, status, ...other } = data
       if (success) {
         yield put({
           type: 'querySuccess',
           payload: {
-            data: other.data,
+            data: other,
           },
         })
       } else {

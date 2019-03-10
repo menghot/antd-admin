@@ -18,6 +18,7 @@ export default {
   updateTaskitem: 'Patch /task-item/:id',
   createTaskitem: 'POST /task-item',
   removeTaskitem: 'DELETE /task-item/:id',
+  duplicateTaskitem: '/task-item/:id/duplicate',
   removeTaskitemList: 'POST /task-items/delete',
 
   queryEsSetting: '/es-setting/:id',

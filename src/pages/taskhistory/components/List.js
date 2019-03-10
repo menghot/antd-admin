@@ -47,7 +47,7 @@ class List extends PureComponent {
         dataIndex: 'name',
         key: 'name',
         render: (text, record) => (
-          <Link to={`taskitem/${record.id}`}>{text}</Link>
+          <Link to={`taskHistory/${record.producerId}`}>{text}</Link>
         ),
       },
       {

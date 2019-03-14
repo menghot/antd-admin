@@ -7,14 +7,14 @@ const gen = params => {
   const paramsArray = params.split(' ')
 
   let url = paramsArray[0].includes('-')
-    ? 'http://127.0.0.1:8080' + params
+    ? 'http://192.168.99.1:8080' + params
     : apiPrefix + params
   let method = 'GET'
 
   if (paramsArray.length === 2) {
     method = paramsArray[0]
     url = paramsArray[1].includes('-')
-      ? 'http://127.0.0.1:8080' + paramsArray[1]
+      ? 'http://192.168.99.1:8080' + paramsArray[1]
       : apiPrefix + paramsArray[1]
     //url = apiPrefix + paramsArray[1]
   }

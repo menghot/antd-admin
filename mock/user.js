@@ -92,6 +92,8 @@ const NOTFOUND = {
 
 module.exports = {
   [`POST ${ApiPrefix}/user/login`](req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers","Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
     const { username, password } = req.body
     const user = adminUsers.filter(item => item.username === username)
 
@@ -113,11 +115,15 @@ module.exports = {
   },
 
   [`GET ${ApiPrefix}/user/logout`](req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.clearCookie('token')
     res.status(200).end()
   },
 
   [`GET ${ApiPrefix}/user`](req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const cookie = req.headers.cookie || ''
     const cookies = qs.parse(cookie.replace(/\s/g, ''), { delimiter: ';' })
     const response = {}
@@ -142,6 +148,8 @@ module.exports = {
   },
 
   [`GET ${ApiPrefix}/users`](req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const { query } = req
     let { pageSize, page, ...other } = query
     pageSize = pageSize || 10
@@ -182,12 +190,16 @@ module.exports = {
   },
 
   [`POST ${ApiPrefix}/users/delete`](req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const { ids=[] } = req.body
     database = database.filter(item => !ids.some(_ => _ === item.id))
     res.status(204).end()
   },
 
   [`POST ${ApiPrefix}/user`](req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const newData = req.body
     newData.createTime = Mock.mock('@now')
     newData.avatar =
@@ -207,6 +219,8 @@ module.exports = {
   },
 
   [`GET ${ApiPrefix}/user/:id`](req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const { id } = req.params
     const data = queryArray(database, id, 'id')
     if (data) {
@@ -217,6 +231,8 @@ module.exports = {
   },
 
   [`DELETE ${ApiPrefix}/user/:id`](req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const { id } = req.params
     const data = queryArray(database, id, 'id')
     if (data) {
@@ -231,6 +247,9 @@ module.exports = {
     const { id } = req.params
     const editItem = req.body
     let isExist = false
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Request-Headers", "Origin, X-PINGOTHER, Content-Type");
 
     database = database.map(item => {
       if (item.id === id) {

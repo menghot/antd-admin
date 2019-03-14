@@ -51,6 +51,8 @@ class Bread extends PureComponent {
           },
         ]
 
+    // debugger;
+
     return (
       <Breadcrumb className={styles.bread}>
         {this.generateBreadcrumbs(paths)}

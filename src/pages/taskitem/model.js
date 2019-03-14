@@ -28,7 +28,10 @@ export default modelExtend(pageModel, {
     setup({ dispatch, history }) {
       history.listen(location => {
         if (pathMatchRegexp('/taskitem', location.pathname)) {
-          const payload = location.query || { page: 1, pageSize: 10 }
+          const payload = {};
+          payload.pageNum = location.query.pageNum || 1;
+          payload.pageSize = location.query.pageSize || 10;
+          //payload.pageNum = payload.page || payload.pageNum;
           dispatch({
             type: 'query',
             payload,
@@ -45,11 +48,11 @@ export default modelExtend(pageModel, {
         yield put({
           type: 'querySuccess',
           payload: {
-            list: data.data,
+            list: data.data.list,
             pagination: {
-              current: Number(payload.page) || 1,
+              current: Number(payload.pageNum) || 1,
               pageSize: Number(payload.pageSize) || 10,
-              total: data.total,
+              total: data.data.total,
             },
           },
         })

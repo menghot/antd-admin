@@ -28,6 +28,7 @@ export default function request(options) {
         delete cloneData[item.name]
       }
     }
+
     url = domain + url
   } catch (e) {
     message.error(e.message)

@@ -70,7 +70,7 @@ class Taskitem extends PureComponent {
       pagination,
       onChange(page) {
         handleRefresh({
-          page: page.current,
+          pageNum: page.current,
           pageSize: page.pageSize,
         })
       },
@@ -80,7 +80,7 @@ class Taskitem extends PureComponent {
           payload: id,
         }).then(() => {
           handleRefresh({
-            page:
+            pageNum:
               list.length === 1 && pagination.current > 1
                 ? pagination.current - 1
                 : pagination.current,
@@ -93,7 +93,7 @@ class Taskitem extends PureComponent {
           payload: id,
         }).then(() => {
           handleRefresh({
-            page:
+            pageNum:
               list.length === 1 && pagination.current > 1
                 ? pagination.current - 1
                 : pagination.current,
@@ -143,7 +143,7 @@ class Taskitem extends PureComponent {
       onFilterChange(value) {
         handleRefresh({
           ...value,
-          page: 1,
+          pageNum: 1,
         })
       },
       onAdd() {
@@ -164,7 +164,7 @@ class Taskitem extends PureComponent {
         },
       }).then(() => {
         handleRefresh({
-          page:
+          pageNum:
             list.length === selectedRowKeys.length && pagination.current > 1
               ? pagination.current - 1
               : pagination.current,

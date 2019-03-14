@@ -35,7 +35,10 @@ class List extends PureComponent {
       {
         title: 'id',
         dataIndex: 'id',
-        key: 'id'
+        key: 'id',
+        render: (text, record) => (
+          <Link to={`taskitem/${record.id}`}>{text}</Link>
+        ),
       },
       {
         title: 'status',
@@ -46,9 +49,6 @@ class List extends PureComponent {
         title: <Trans>Name</Trans>,
         dataIndex: 'name',
         key: 'name',
-        render: (text, record) => (
-          <Link to={`taskitem/${record.id}`}>{text}</Link>
-        ),
       },
       {
         title: <Trans>producerId</Trans>,

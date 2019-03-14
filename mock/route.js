@@ -42,7 +42,14 @@ const database = [
     zhName: '任务详情',
     route: '/taskitem/:id',
   },
-
+  {
+    id: '72',
+    menuParentId: '-1',
+    breadcrumbParentId: '71',
+    name: 'Task History',
+    zhName: 'Task History',
+    route: '/taskitem/:id/history',
+  },
   {
     id: '8',
     breadcrumbParentId: '1',
@@ -129,6 +136,8 @@ const database = [
 
 module.exports = {
   [`GET ${ApiPrefix}/routes`](req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.status(200).json(database)
   },
 }

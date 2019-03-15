@@ -73,7 +73,7 @@ class TaskitemModal extends PureComponent {
             {...formItemLayout}
           >
             {getFieldDecorator('producerType', {
-              initialValue: item.producerType == null ? 'com.yoyosys.mt.task.producer.DatabaseProducer	' : item.producerType,
+              initialValue: item.producerType == null ? 'com.yoyosys.mt.task.producer.DatabaseProducer' : item.producerType,
               rules: [
                 {
                   required: true,
@@ -111,7 +111,7 @@ class TaskitemModal extends PureComponent {
             {...formItemLayout}
           >
             {getFieldDecorator('consumerType', {
-              initialValue: item.consumerType == null ? 'com.yoyosys.mt.task.consumer.ElasticsearchConsumer	' : item.consumerType,
+              initialValue: item.consumerType == null ? 'com.yoyosys.mt.task.consumer.ElasticsearchConsumer' : item.consumerType,
               rules: [
                 {
                   required: true,

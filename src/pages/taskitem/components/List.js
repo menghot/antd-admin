@@ -33,72 +33,83 @@ class List extends PureComponent {
     const { onDeleteItem, onEditItem, onExecuteItem, i18n, ...tableProps } = this.props
     const columns = [
       {
-        title: 'id',
+        title: 'ID',
         dataIndex: 'id',
         key: 'id',
+        // fixed: 'left',
+        width: 100,
         render: (text, record) => (
           <Link to={`taskitem/${record.id}`}>{text}</Link>
         ),
       },
       {
-        title: 'status',
+        title: '状态',
         dataIndex: 'status',
-        key: 'status'
+        key: 'status',
+        width: 70,
       },
       {
-        title: <Trans>Name</Trans>,
+        title: '配置名称',
         dataIndex: 'name',
         key: 'name',
+        width: 130,
+      },
+      {
+        title: '索引名称',
+        dataIndex: 'consumerEsIndexName',
+        key: 'consumerEsIndexName',
+        width: 120,
       },
       {
         title: <Trans>producerId</Trans>,
         dataIndex: 'producerId',
         key: 'producerId',
+        width: 20,
       },
-      {
-        title: <Trans>producerType</Trans>,
-        dataIndex: 'producerType',
-        key: 'producerType',
-      },
-      {
-        title: <Trans>producerCount</Trans>,
-        dataIndex: 'producerCount',
-        key: 'producerCount',
-      },
+      // {
+      //   title: <Trans>producerType</Trans>,
+      //   dataIndex: 'producerType',
+      //   key: 'producerType',
+      // },
+      // {
+      //   title: <Trans>producerCount</Trans>,
+      //   dataIndex: 'producerCount',
+      //   key: 'producerCount',
+      // },
       {
         title: <Trans>producerDbSql</Trans>,
         dataIndex: 'producerDbSql',
         key: 'producerDbSql',
+        width: 10,
+
       },
       {
         title: <Trans>consumerId</Trans>,
         dataIndex: 'consumerId',
         key: 'consumerId',
+        width: 20,
+
       },
-      {
-        title: <Trans>consumerType</Trans>,
-        dataIndex: 'consumerType',
-        key: 'consumerType',
-      },
-      {
-        title: <Trans>consumerCount</Trans>,
-        dataIndex: 'consumerCount',
-        key: 'consumerCount',
-      },
-      {
-        title: <Trans>consumerEsIndexName</Trans>,
-        dataIndex: 'consumerEsIndexName',
-        key: 'consumerEsIndexName',
-      },
+      // {
+      //   title: <Trans>consumerType</Trans>,
+      //   dataIndex: 'consumerType',
+      //   key: 'consumerType',
+      // },
+      // {
+      //   title: <Trans>consumerCount</Trans>,
+      //   dataIndex: 'consumerCount',
+      //   key: 'consumerCount',
+      // },
       {
         title: <Trans>CreateTime</Trans>,
         dataIndex: 'createTime',
         key: 'createTime',
+        width: 200,
       },
       {
         title: <Trans>Operation</Trans>,
         key: 'operation',
-        // fixed: 'right',
+        fixed: 'right',
         render: (text, record) => {
           return (
             <DropOption
@@ -124,9 +135,9 @@ class List extends PureComponent {
         }}
         className={styles.table}
         bordered
-        scroll={{ x: 1000 }}
+        scroll={{ x: 1000}}
         columns={columns}
-        simple
+        // simple
         rowKey={record => record.id}
       />
     )

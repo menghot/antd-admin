@@ -25,22 +25,16 @@ class List extends PureComponent {
     }
   }
 
-  // private String id;
-  // private String name;
-  // private String url;
-  // private String indexName;
-  // private String idKey;
-  // private String docType = "_doc";
-  // private int retryCount = 2;
-  // private Date createTime;
-  // private Date updateTime;
   render() {
     const { onDeleteItem, onEditItem, i18n, ...tableProps } = this.props
     const columns = [
       {
         title: 'ID',
         dataIndex: 'id',
-        key: 'id'
+        key: 'id',
+        // render: (text, record) => (
+        //   <Link to={`essetting/${record.id}`}>{text}</Link>
+        // ),
       },
       {
         title: '配置名称',
@@ -48,9 +42,6 @@ class List extends PureComponent {
         // sorter: true,
         // sortOrder: 'ascend',
         key: 'name',
-        render: (text, record) => (
-          <Link to={`dbseting/${record.id}`}>{text}</Link>
-        ),
       },
       {
         title: 'url',

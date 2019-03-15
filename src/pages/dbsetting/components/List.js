@@ -31,15 +31,15 @@ class List extends PureComponent {
       {
         title: 'id',
         dataIndex: 'id',
-        key: 'id'
+        key: 'id',
+        // render: (text, record) => (
+        //   <Link to={`dbsetting/${record.producerId}`}>{text}</Link>
+        // ),
       },
       {
         title: '连接名称',
         dataIndex: 'name',
         key: 'name',
-        render: (text, record) => (
-          <Link to={`taskitem/${record.producerId}`}>{text}</Link>
-        ),
       },
       {
         title: <Trans>jdbcUrl</Trans>,

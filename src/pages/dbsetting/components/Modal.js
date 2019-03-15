@@ -41,7 +41,7 @@ class TaskitemModal extends PureComponent {
     return (
       <Modal {...modalProps} onOk={this.handleOk}>
         <Form layout="horizontal">
-          <FormItem label={i18n.t`Name`} hasFeedback {...formItemLayout}>
+          <FormItem label='连接名称' hasFeedback {...formItemLayout}>
             {getFieldDecorator('name', {
               initialValue: item.name,
               rules: [
@@ -62,7 +62,7 @@ class TaskitemModal extends PureComponent {
             })(<Input />)}
           </FormItem>
           <FormItem
-            label={i18n.t`username`}
+            label='用户名'
             hasFeedback
             {...formItemLayout}
           >
@@ -76,7 +76,7 @@ class TaskitemModal extends PureComponent {
             })(<Input />)}
           </FormItem>
           <FormItem
-            label={i18n.t`password`}
+            label='密码'
             hasFeedback
             {...formItemLayout}
           >
@@ -88,16 +88,6 @@ class TaskitemModal extends PureComponent {
                 },
               ],
             })(<Input />)}
-          </FormItem>
-          <FormItem label={i18n.t`sql`} hasFeedback {...formItemLayout}>
-            {getFieldDecorator('sql', {
-              initialValue: item.sql,
-              rules: [
-                {
-                  required: true,
-                },
-              ],
-            })(<TextArea />)}
           </FormItem>
         </Form>
       </Modal>

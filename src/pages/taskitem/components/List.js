@@ -124,7 +124,7 @@ class List extends PureComponent {
         }}
         className={styles.table}
         bordered
-        scroll={{ x: 1200 }}
+        scroll={{ x: 1000 }}
         columns={columns}
         simple
         rowKey={record => record.id}

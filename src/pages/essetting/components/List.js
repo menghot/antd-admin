@@ -17,7 +17,7 @@ class List extends PureComponent {
       onEditItem(record)
     } else if (e.key === '2') {
       confirm({
-        title: i18n.t`Are you sure delete this record?`,
+        title: '确认删除',
         onOk() {
           onDeleteItem(record.id)
         },
@@ -38,55 +38,42 @@ class List extends PureComponent {
     const { onDeleteItem, onEditItem, i18n, ...tableProps } = this.props
     const columns = [
       {
-        title: 'id',
+        title: 'ID',
         dataIndex: 'id',
         key: 'id'
       },
       {
-        title: <Trans>Name</Trans>,
+        title: '配置名称',
         dataIndex: 'name',
+        // sorter: true,
+        // sortOrder: 'ascend',
         key: 'name',
         render: (text, record) => (
           <Link to={`dbseting/${record.id}`}>{text}</Link>
         ),
       },
       {
-        title: <Trans>url</Trans>,
+        title: 'url',
         dataIndex: 'url',
         key: 'url',
       },
       {
-        title: <Trans>indexName</Trans>,
-        dataIndex: 'indexName',
-        key: 'indexName',
-      },
-      {
-        title: <Trans>idKey</Trans>,
-        dataIndex: 'idKey',
-        key: 'idKey',
-      },
-      {
-        title: <Trans>docType</Trans>,
+        title: '默认文档类型',
         dataIndex: 'docType',
         key: 'docType',
       },
       {
-        title: <Trans>retry</Trans>,
+        title: '默认重试次数',
         dataIndex: 'retryCount',
         key: 'retryCount',
       },
       {
-        title: <Trans>cTime</Trans>,
+        title: '创建时间',
         dataIndex: 'createTime',
         key: 'createTime',
       },
       {
-        title: <Trans>updateTime</Trans>,
-        dataIndex: 'updateTime',
-        key: 'updateTime',
-      },
-      {
-        title: <Trans>Operation</Trans>,
+        title: '操作',
         key: 'operation',
         // fixed: 'right',
         render: (text, record) => {
@@ -94,8 +81,8 @@ class List extends PureComponent {
             <DropOption
               onMenuClick={e => this.handleMenuClick(record, e)}
               menuOptions={[
-                { key: '1', name: i18n.t`Update` },
-                { key: '2', name: i18n.t`Delete` },
+                { key: '1', name: '更新' },
+                { key: '2', name: '删除' },
               ]}
             />
           )
@@ -112,7 +99,7 @@ class List extends PureComponent {
         }}
         className={styles.table}
         bordered
-        scroll={{ x: 1200 }}
+        scroll={{ x: 1000 }}
         columns={columns}
         simple
         rowKey={record => record.id}

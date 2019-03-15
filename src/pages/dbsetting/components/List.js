@@ -17,22 +17,14 @@ class List extends PureComponent {
       onEditItem(record)
     } else if (e.key === '2') {
       confirm({
-        title: i18n.t`Are you sure delete this record?`,
+        title: '您确定要删除这条记录吗?',
         onOk() {
           onDeleteItem(record.id)
         },
       })
     }
-  }
+  };
 
-  // private String id;
-  // private String name;
-  // private String jdbcUrl;
-  // private String username;
-  // private String password;
-  // private String sql;
-  // private Date createTime;
-  // private Date updateTime;
   render() {
     const { onDeleteItem, onEditItem, i18n, ...tableProps } = this.props
     const columns = [
@@ -42,7 +34,7 @@ class List extends PureComponent {
         key: 'id'
       },
       {
-        title: <Trans>Name</Trans>,
+        title: '连接名称',
         dataIndex: 'name',
         key: 'name',
         render: (text, record) => (
@@ -55,27 +47,23 @@ class List extends PureComponent {
         key: 'jdbcUrl',
       },
       {
-        title: <Trans>username</Trans>,
+        title: '用户名',
         dataIndex: 'username',
         key: 'username',
       },
       {
-        title: <Trans>password</Trans>,
+        title: '密码',
         dataIndex: 'password',
         key: 'password',
       },
       {
-        title: <Trans>sql</Trans>,
-        dataIndex: 'sql',
-        key: 'sql',
-      },
-      {
-        title: <Trans>createTime</Trans>,
+        title: '创建时间',
         dataIndex: 'createTime',
         key: 'createTime',
+        sorter: true
       },
       {
-        title: <Trans>Operation</Trans>,
+        title: '操作',
         key: 'operation',
         // fixed: 'right',
         render: (text, record) => {
@@ -101,7 +89,7 @@ class List extends PureComponent {
         }}
         className={styles.table}
         bordered
-        scroll={{ x: 1200 }}
+        scroll={{ x: 1000 }}
         columns={columns}
         simple
         rowKey={record => record.id}

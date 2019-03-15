@@ -28,10 +28,10 @@ export default modelExtend(pageModel, {
     setup({ dispatch, history }) {
       history.listen(location => {
         if (pathMatchRegexp('/taskitem', location.pathname)) {
-          const payload = {};
+          //const payload = {};
+          const payload = location.query;
           payload.pageNum = location.query.pageNum || 1;
           payload.pageSize = location.query.pageSize || 10;
-          //payload.pageNum = payload.page || payload.pageNum;
           dispatch({
             type: 'query',
             payload,

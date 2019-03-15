@@ -47,8 +47,8 @@ class DbSetting extends PureComponent {
       confirmLoading: loading.effects[`dbsetting/${modalType}`],
       title: `${
         modalType === 'create'
-          ? i18n.t`Create dbsetting`
-          : i18n.t`Update dbsetting`
+          ? '创建数据库配置'
+          : '修改数据库配置'
       }`,
       centered: true,
       onOk(data) {
